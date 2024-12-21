@@ -1,0 +1,32 @@
+services:
+  backend:
+    build: ./backend-app
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    env_file:
+      - backend-app/src/.env-dev
+    command: ["/bin/bash", "./docker/app.sh"]
+
+  client:
+    build: ./client-app
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+      
+  db:
+    container_name: db
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres_tms
+
+volumes:
+  postgres_data:

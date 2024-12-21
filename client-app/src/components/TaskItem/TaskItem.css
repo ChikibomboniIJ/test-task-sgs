@@ -1,0 +1,87 @@
+.task-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    margin: 16px 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.task-actions {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    gap: 8px;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px;
+    color: #555;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.icon-button:hover {
+    color: #000;
+    transform: scale(1.1);
+}
+
+.delete-button {
+    color: #f44336;
+}
+
+.delete-button:hover {
+    color: #d32f2f;
+}
+
+.edit-button {
+    color: #2196f3;
+}
+
+.edit-button:hover {
+    color: #1976d2;
+}
+
+.status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.task-status-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    align-items: center;
+}
+
+.task-status-actions button {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.task-status-actions button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.task-status-actions button:hover:not(:disabled) {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+

@@ -1,0 +1,55 @@
+.task-list-container {
+    padding: 20px;
+}
+
+.tab-cards {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.tab-card {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.tab-card h4 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #333;
+}
+
+.tab-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.tab-card:hover {
+    transform: scale(1.05);
+    background-color: #e9ecef;
+}
+
+.tab-card.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.tab-card.active h4,
+.tab-card.active p {
+    color: #fff;
+}
+
+.tab-content-block {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
