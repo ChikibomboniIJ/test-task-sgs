@@ -8,6 +8,7 @@ const RegisterPage = () => {
 
     const navigate = useNavigate();
 
+    // Функция регистрации
     const handleSubmit = async (username, email, password, passwordConfirmed) => {
         try {
             await register(username, email, password, passwordConfirmed);

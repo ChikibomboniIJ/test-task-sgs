@@ -6,6 +6,7 @@ import ChangePasswordForm from '../components/ChangePassword/ChangePassword';
 import '../App.css'
 
 const ChangePasswordPage = () => {
+    // Функция смены пароля
     const onSubmit = async (credentials) => {
         try {
             await changePassword(credentials.oldPassword, 

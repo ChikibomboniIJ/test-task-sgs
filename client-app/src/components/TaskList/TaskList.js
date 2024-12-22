@@ -37,7 +37,6 @@ const TaskList = ({ handleDelete, onModify, onStatusChange, onPriorityChange, ta
                 ))}
             </div>
 
-            {/* Контент вкладок */}
             <div className="tab-content">
                 {activeTab === 'new' && (
                     <div className="tab-content-block">

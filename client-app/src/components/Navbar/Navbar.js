@@ -15,6 +15,7 @@ const Navbar = () => {
         { path: '/change-password', label: 'Change Password' },
     ];
 
+    // Функция логаута
     const handleLogout = async () => {
         try {
             await logoutService();

@@ -19,8 +19,6 @@ env = environ.Env()
 environ.Env.read_env()
 
 SECRET_KEY = env('SECRET_KEY')
-print("//////////")
-print(SECRET_KEY)
 DEBUG = env.bool('DEBUG')
 
 ALLOWED_HOSTS = []

@@ -42,6 +42,7 @@ const TasksPage = () => {
         handleStatusChange(task.id, newStatus);
     };
 
+    // Функция смены статуса задачи
     const handleStatusChange = async (taskId, status) => {
         try {
             await updateTask(taskId, { status });
@@ -51,6 +52,7 @@ const TasksPage = () => {
         }
     };
 
+    // Функция смены приоритета задачи
     const handlePriorityChange = async (taskId, priority) => {
         try {
             await updateTask(taskId, {priority: priority})
@@ -60,6 +62,7 @@ const TasksPage = () => {
         }
     }
 
+    //Функция удаления задачи
     const handleDelete = async (taskId) => {
         try {
             await deleteTask(taskId);
@@ -68,6 +71,7 @@ const TasksPage = () => {
             console.error(`Error deleting task with id ${taskId}:`, error);
         }
     };
+
     const onPriorityChange = (task, direction) => {
         const priorities = ['Low', 'Medium', 'High'];
         const currentIndex = priorities.indexOf(task.priority);

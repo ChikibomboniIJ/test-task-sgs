@@ -1,13 +1,13 @@
-FROM node:alpine AS development
+FROM node:alpine
 
-ENV NODE_ENV development
+WORKDIR /client-app
 
-WORKDIR /react-app
-
-COPY ./package*.json /react-app
+COPY ./package*.json /client-app
 
 RUN npm install
 
 COPY . .
 
-CMD ["npm","start"]
+EXPOSE 3000
+
+CMD ["npm", "start"]

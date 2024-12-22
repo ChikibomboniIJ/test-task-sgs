@@ -86,14 +86,14 @@ const TaskItem = ({ task, onStatusChange, onDelete, onModify, onPriorityChange }
                 </span>
                 <button
                     title="Increase Priority"
-                    disabled={task.status === 'High'}
+                    disabled={task.priority === 'High'}
                     onClick={() => onPriorityChange(task, 'up')}
                 >
                     ↑
                 </button>
                 <button
                     title="Decrease Priority"
-                    disabled={task.status === 'Low'}
+                    disabled={task.priority === 'Low'}
                     onClick={() => onPriorityChange(task, 'down')}
                 >
                     ↓

@@ -12,7 +12,7 @@ const LoginPage = () => {
     const goToRegister = () => {
         navigate('/register');
     };
-
+    // Функция логина
     const handleSubmit = async (username, password) => {
         try {
             await loginService(username, password);

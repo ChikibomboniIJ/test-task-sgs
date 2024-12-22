@@ -4,11 +4,9 @@ async function handleRequest(url, options) {
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-
         if (!response.ok) {
             throw new Error(data.error?.message || data.error || 'An error occurred');
         }
-
         return data;
     } catch (error) {
         throw error; 
@@ -37,7 +35,6 @@ export async function register(username, email, password, passwordConfirmed) {
 }
 
 export async function logout() {
-
     const data = await handleRequest(`${API_URL}/users/logout/`, {
         method: 'POST',
         headers: {
@@ -51,7 +48,6 @@ export async function logout() {
     localStorage.removeItem('refresh_token');
 
     return data;
-
 }
 
 export async function changePassword(oldPassword, newPassword, newPasswordConfirmed) {
@@ -70,17 +66,13 @@ export async function changePassword(oldPassword, newPassword, newPasswordConfir
 }
 
 export async function refreshToken() {
-
     const data = await handleRequest(`${API_URL}/users/token/refresh/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ refresh: localStorage.getItem('refresh_token') })
     });
-
     localStorage.setItem('access_token', data.access);
-
     return data;
-
 }
 
 export async function isTokenVerified() {

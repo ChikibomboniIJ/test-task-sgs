@@ -30,16 +30,15 @@ class LoginAPIView(APIView):
     def post(self, request: HttpRequest):
         serializer = LoginSerializer(data=request.data, context = {'request': request})
         if serializer.is_valid():
-            user = authenticate(request, **serializer.validated_data)
+            user = authenticate(request, **serializer.validated_data) # Аутентификация пользователя
             if user is not None:
-                tokens = get_tokens_for_user(user)
+                tokens = get_tokens_for_user(user) # JWT токены для текущего пользователя
                 return Response(tokens, status=status.HTTP_200_OK)
             return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
         else:
             return Response(
                 {"error": serializer.errors}, status=status.HTTP_400_BAD_REQUEST
             )
-            
             
 class LogoutAPIView(APIView):
     permission_classes = [IsAuthenticated, ]
@@ -48,7 +47,7 @@ class LogoutAPIView(APIView):
         try:
             refresh_token = request.data["refresh"]
             token = RefreshToken(refresh_token)
-            token.blacklist()
+            token.blacklist() # Добавляем токен в черный список
             return Response({"message": "Successfully logged out"}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"error": "Invalid refresh token"}, status=status.HTTP_400_BAD_REQUEST)
