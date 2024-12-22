@@ -12,7 +12,7 @@ const RegisterPage = () => {
     const handleSubmit = async (username, email, password, passwordConfirmed) => {
         try {
             await register(username, email, password, passwordConfirmed);
-            navigate('/');
+            navigate('/login');
             toast.success('Registered successfully!');
 
         } catch (error) {
